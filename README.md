@@ -39,7 +39,7 @@ protected function validateLogin(Request $request)
          * 
          * Without Using Method/Function
          */
-        //"custom_field" => 'required|string',
+        "custom_field" => 'required|string',
     ]);
 }
 ```
