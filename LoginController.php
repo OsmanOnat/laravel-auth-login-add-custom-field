@@ -50,24 +50,6 @@ class LoginController extends Controller
             "custom_field" => "required",
 
         ]);
-            
-        if(
-            empty( $request->exists( 'email' ) ) &&
-            empty( $request->exists( 'password' ) ) &&
-            //check my custom field
-            empty( $request->exists( "custom_field" ) )
-        ){
-            return view('auth.login')->with( 'login_page_error' , 'Request Exists Error');
-        }
-
-        if(
-            empty( $request->filled( 'email' ) ) &&
-            empty( $request->filled( 'password' ) ) &&
-            //check my custom field
-            empty( $request->filled( "custom_field" ) )
-        ){
-            return redirect()->route('admin_login_post')->withErrors('Empty Field');
-        }
 
         $f_email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $f_pass = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
